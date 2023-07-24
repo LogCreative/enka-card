@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENKA Card</title>
+    <style>
+        #genshin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        #genshin #genshin_headbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        #genshin #genshin_headbar img {
+            width: 64px;
+            margin: 0px 8px;
+        }
+        #genshin #genshin_headbar img:hover {
+            cursor: pointer;
+        }
+        #genshin #genshin_detail {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <genshin></genshin>
+    <!-- config file defines characters and rootdir -->
+    <script src="genshin_config.js"></script>
+    <script>
+        genshin_object = document.createElement("div")
+        genshin_object.setAttribute("id","genshin")
+        genshin_headbar = document.createElement("div")
+        genshin_headbar.setAttribute("id","genshin_headbar")
+        genshin_detail = document.createElement("img")
+        genshin_detail.setAttribute("id","genshin_detail")
+
+        function showCharacter(e) {
+            character_obj = document.getElementById("genshin_detail")
+            character_obj.setAttribute("src", rootdir + "/" + this.id + "_detail.png")
+        }
+
+        characters.forEach(character => {
+            chara_img = document.createElement("img")
+            chara_img.setAttribute("id",character)
+            chara_img.setAttribute("src",`${rootdir}/${character}_icon.png`)
+            chara_img.addEventListener('click', showCharacter)
+            genshin_headbar.appendChild(chara_img)
+        });
+
+        genshin_object.appendChild(genshin_headbar)
+        genshin_object.appendChild(genshin_detail)
+        document.getElementsByTagName("genshin")[0].replaceWith(genshin_object)
+    </script>
+</body>
+</html>
