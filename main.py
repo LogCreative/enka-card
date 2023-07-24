@@ -4,8 +4,8 @@ from enkanetwork import EnkaNetworkAPI, Language
 
 from generator import generate_image
 
-client = EnkaNetworkAPI(lang=Language.EN)
-uid = 604905943
+client = EnkaNetworkAPI(lang=Language.CN)
+uid = 273518546
 
 
 async def main():
