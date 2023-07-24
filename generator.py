@@ -690,7 +690,8 @@ def generate_image(
         os.makedirs("output")
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    filename = f"{character.name}_{timestamp}"
+    # filename = f"{character.name}_{timestamp}"
+    filename = f"{character.name}_detail"
 
     foreground = Image.alpha_composite(foreground, textground)
     Image.alpha_composite(background, foreground).save(
