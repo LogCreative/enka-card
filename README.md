@@ -46,6 +46,6 @@ Run the script:
 python main.py
 ```
 
-
+Notice, you need to make sure you could connect to the [ENKA website](https://enka.network) if you want this tool to work properly.
 
 Your character cards will be output in the `/output` directory. Happy generating!
