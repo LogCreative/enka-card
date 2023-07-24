@@ -12,7 +12,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance
 from prop_reference import RARITY_REFERENCE, SUBST_ORDER
 from utils import (fade_asset_icon, fade_character_art, format_statistics,
                    get_active_artifact_sets, get_font, get_stat_filename,
-                   open_image, scale_image)
+                   open_image, scale_image, get_output_dir)
 
 
 def generate_image(
@@ -686,16 +686,13 @@ def generate_image(
             font=get_font("normal", 17),
         )
 
-    if not os.path.exists("output"):
-        os.makedirs("output")
-
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     # filename = f"{character.name}_{timestamp}"
     filename = f"{character.name}_detail"
 
     foreground = Image.alpha_composite(foreground, textground)
     Image.alpha_composite(background, foreground).save(
-        f"output/{filename}.png", format="png"
+        f"{get_output_dir()}/{filename}.png", format="png"
     )
 
     """ 

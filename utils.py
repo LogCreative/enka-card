@@ -218,3 +218,10 @@ def format_statistics(char: CharacterInfo) -> dict[str, int]:
         break
 
     return ret_stats
+
+
+def get_output_dir():
+    outputdir = "output"
+    if not os.path.exists(outputdir):
+        os.makedirs(outputdir)
+    return outputdir
